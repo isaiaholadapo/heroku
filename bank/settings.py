@@ -29,7 +29,7 @@ SECRET_KEY = '9op9va&oinx!@$)p78ht#n1zn%5dk3id^3ry!s@--o4+l149al'
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False' 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['djbank.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
