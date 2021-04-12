@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        background-color: #281459 !important;
+        color: #fff;
+    }
+
+
+    a.nav-link {
+        color: black;
+    }
+
+    .h33 {
+        margin-top: 7em !important;
+        color: #fff;
+    }
+
+    td,
+    th {
+        color: #fff;
+        text-align: center;
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #281459;
+    color: #fff;
+}
+
+h4 {
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+form { 
+    margin: 1em;
+}
+</style>
+<div class="h33">
+    <div class="container">
+        <h4>Transfer History:</h4>
+    
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        <form  method="post">
+            {% csrf_token %}
+            From: <input type="date" name="fromdate" id="">
+            To: <input type="date" name="todate" id="">
+            <input type="submit" value="Search">
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transfer in page.object_list %}
+                <tr>
+                    <td scope="row"> {{transfer.id}}</th>
+                    <td>{{transfer.amount}}</td>
+                    <td>{{transfer.date}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    {% if page.has_previous %}
+                    <td>
+                        <a href="{% url 'transfer-history' %}?page={{ page.previous_page_number }}">Previous Page</a>
+                    </td>
+                    {% endif %}
+                    <td></td>
+                    {% if page.has_next %}
+                    <td>
+                        <a href="{% url 'transfer-history' %}?page={{ page.next_page_number }}">Next Page</a>
+                    </td>
+                    {% endif %}
+                </tr>
+    
+            </tbody>
+        </table>
+    
+        
+        
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="inner-banner">
+</div>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Home</li>
+        </ul>
+    </div>
+</section>
+<div class="container">
+  <h4>Account Details:</h4>
+  <dl class="row">
+    
+    <dt class="col-sm-3">Account Number:</dt>
+    <dd class="col-sm-9">{{ active_user.account_number}}</dd>
+
+    <dt class="col-sm-3">Account Type:</dt>
+    <dd class="col-sm-9">{{ active_user.account_type}}</dd>
+
+    <dt class="col-sm-3">Account Balance:</dt>
+    <dd class="col-sm-9">{{ active_user.balance}}</dd>
+
+    <dt class="col-sm-3">Account Balance:</dt>
+    <dd class="col-sm-9">{{ active_user.email}}</dd>
+
+  </dl>
+</div>
+
+{% endblock content %}

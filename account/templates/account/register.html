@@ -1,0 +1,323 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #2a2759;
+    }
+</style>
+<div class="inner-banner">
+</div>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Register</li>
+        </ul>
+    </div>
+</section>
+ <section class="register-section">
+     <form class="form-register" method="POST" role="form">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <div class="container py-5">
+    <div class="col-md-10 mx-auto">
+        <div class="form-register">
+            <div class="form-register-header">
+              <p>Fill all form field to go next step</p>
+              <ul class="list-unstyled form-register-steps clearfix">
+                <li class="active"><span>1</span></li>
+                <li><span>2</span></li>
+                <li><span>3</span></li>
+              </ul>
+            </div>
+            <fieldset class="register-fieldset show">
+              <h5>Personal Information</h5>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="first_name" id="fname">
+                  <label for="fname" class="register-form-text-label">First Name*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="last_name" id="lname">
+                  <label for="lname" class="register-form-text-label">Last Name*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="exampleFormControlSelect1" class="register-form-text-label"></label>
+                  <select class="form-control register-required" name="gender"  id="exampleFormControlSelect1">
+                    <option>Click here to select gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                  </select>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="date" class="form-control register-required" name="date_of_birth" id="dob">
+                  <label for="dob" class="register-form-text-label">Date of Birth*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="number" class="form-control register-required" name="phone_number" id="phone">
+                  <label for="phone" class="register-form-text-label">Phone Number*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control register-required" name="email" id="email">
+                  <label for="email" class="register-form-text-label">Email Address*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="password" class="form-control register-required" name="password1" id="password1">
+                  <label for="password1" class="register-form-text-label">Password*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control register-required" name="password2" id="password2">
+                  <label for="password2" class="register-form-text-label">Confirm Password*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="address" id="inputAddressLine1">
+                  <label for="inputAddressLine1" class="register-form-text-label">Address*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="state" id="inputState">
+                  <label for="inputState" class="register-form-text-label">State*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="number" class="form-control register-required" name="bvn" id="inputBvn">
+                  <label for="inputBvn" class="register-form-text-label">BVN*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="exampleFormControlSelect2" class="register-form-text-label"></label>
+                  <select class="form-control register-required" name="account_type" id="exampleFormControlSelect2">
+                    <option>Click here to select account type</option>
+                    <option>savings</option>
+                    <option>current</option>
+                    <option>deposit Account</option>
+                    <option>dom Account</option>
+                  </select>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group clearfix">
+                <a href="javascript:;" class="form-register-next-btn float-right">Next</a>
+              </div>
+            </fieldset>
+            <fieldset class="register-fieldset">
+              <h5>Work Details</h5>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="exampleFormControlSelect3" class="register-form-text-label"></label>
+                  <select class="form-control register-required" name="emplyment_status"  id="exampleFormControlSelect3">
+                    <option>Click here to select employment status</option>
+                    <option>Employed</option>
+                    <option>Self Employed</option>
+                    <option >Freelance</option>
+                    <option >Unemploy</option>
+                  </select>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="employer" id="employer">
+                  <label for="employer" class="register-form-text-label">Company name*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="number" class="form-control register-required" name="employer_number" id="employer_no">
+                  <label for="employer_no" class="register-form-text-label">Company phone number*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control register-required" name="employer_email" id="employer_email">
+                  <label for="employer_email" class="register-form-text-label">Company email address*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="number" class="form-control register-required" name="employer_address" id="employer_address">
+                  <label for="employer_address" class="register-form-text-label">Company address*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="employer_location" id="employer_location">
+                  <label for="employer_email" class="register-form-text-label">State*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+              <div class="form-group clearfix">
+                <a href="javascript:;" class="form-register-previous-btn float-left">Previous</a>
+                <a href="javascript:;" class="form-register-next-btn float-right">Next</a>
+              </div>
+            </fieldset>
+            <fieldset class="register-fieldset">
+              <h5>Next of Kin</h5>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                <input type="text" class="form-control register-required" name="kin_first_name" id="kname">
+                <label for="kname" class="register-form-text-label">First Name*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control register-required" name="kin_last_name" id="kin_name">
+                  <label for="kin_name" class="register-form-text-label">Last Name*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                <input type="number" class="form-control register-required" name="kin_phone" id="kin_phone">
+                <label for="kin_phone" class="register-form-text-label">Phone Number*</label>
+                  <div class="register-form-error"></div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control register-required" name="kin_email" id="kin_lemail">
+                  <label for="kin_lemail" class="register-form-text-label">Email*</label>
+                  <div class="register-form-error"></div>
+                </div>
+              </div>
+
+             <div class="form-group clearfix">
+               <a href="javascript:;" class="form-register-previous-btn float-left">Previous</a>
+               <button type="submit" class="btn form-register-submit float-right">Submit</button>
+              </div>
+            </fieldset>
+        </div>
+      </div>
+    </div>
+
+    </form>
+ </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+      // click on next button
+      jQuery('.form-register-next-btn').click(function () {
+        var parentFieldset = jQuery(this).parents('.register-fieldset');
+        var currentActiveStep = jQuery(this).parents('.form-register').find('.form-register-steps .active');
+        var next = jQuery(this);
+        var nextregisterStep = true;
+        parentFieldset.find('.register-required').each(function () {
+          var thisValue = jQuery(this).val();
+
+          if (thisValue == "") {
+            jQuery(this).siblings(".register-form-error").slideDown();
+            nextregisterStep = false;
+          }
+          else {
+            jQuery(this).siblings(".register-form-error").slideUp();
+          }
+        });
+        if (nextregisterStep) {
+          next.parents('.register-fieldset').removeClass("show", "400");
+          currentActiveStep.removeClass('active').addClass('activated').next().addClass('active', "400");
+          next.parents('.register-fieldset').next('.register-fieldset').addClass("show", "400");
+          jQuery(document).find('.register-fieldset').each(function () {
+            if (jQuery(this).hasClass('show')) {
+              var formAtrr = jQuery(this).attr('data-tab-content');
+              jQuery(document).find('.form-register-steps .form-register-step-item').each(function () {
+                if (jQuery(this).attr('data-attr') == formAtrr) {
+                  jQuery(this).addClass('active');
+                  var innerWidth = jQuery(this).innerWidth();
+                  var position = jQuery(this).position();
+                  jQuery(document).find('.form-register-step-move').css({ "left": position.left, "width": innerWidth });
+                } else {
+                  jQuery(this).removeClass('active');
+                }
+              });
+            }
+          });
+        }
+      });
+      //click on previous button
+      jQuery('.form-register-previous-btn').click(function () {
+        var counter = parseInt(jQuery(".register-counter").text());;
+        var prev = jQuery(this);
+        var currentActiveStep = jQuery(this).parents('.form-register').find('.form-register-steps .active');
+        prev.parents('.register-fieldset').removeClass("show", "400");
+        prev.parents('.register-fieldset').prev('.register-fieldset').addClass("show", "400");
+        currentActiveStep.removeClass('active').prev().removeClass('activated').addClass('active', "400");
+        jQuery(document).find('.register-fieldset').each(function () {
+          if (jQuery(this).hasClass('show')) {
+            var formAtrr = jQuery(this).attr('data-tab-content');
+            jQuery(document).find('.form-register-steps .form-register-step-item').each(function () {
+              if (jQuery(this).attr('data-attr') == formAtrr) {
+                jQuery(this).addClass('active');
+                var innerWidth = jQuery(this).innerWidth();
+                var position = jQuery(this).position();
+                jQuery(document).find('.form-register-step-move').css({ "left": position.left, "width": innerWidth });
+              } else {
+                jQuery(this).removeClass('active');
+              }
+            });
+          }
+        });
+      });
+      //click on form submit button
+      jQuery(document).on("click", ".form-register .form-register-submit", function () {
+        var parentFieldset = jQuery(this).parents('.register-fieldset');
+        var currentActiveStep = jQuery(this).parents('.form-register').find('.form-register-steps .active');
+        parentFieldset.find('.register-required').each(function () {
+          var thisValue = jQuery(this).val();
+          if (thisValue == "") {
+            jQuery(this).siblings(".register-form-error").slideDown();
+          }
+          else {
+            jQuery(this).siblings(".register-form-error").slideUp();
+          }
+        });
+      });
+      // focus on input field check empty or not
+      jQuery(".form-control").on('focus', function () {
+        var tmpThis = jQuery(this).val();
+        if (tmpThis == '') {
+          jQuery(this).parent().addClass("focus-input");
+        }
+        else if (tmpThis != '') {
+          jQuery(this).parent().addClass("focus-input");
+        }
+      }).on('blur', function () {
+        var tmpThis = jQuery(this).val();
+        if (tmpThis == '') {
+          jQuery(this).parent().removeClass("focus-input");
+          jQuery(this).siblings('.register-form-error').slideDown("3000");
+        }
+        else if (tmpThis != '') {
+          jQuery(this).parent().addClass("focus-input");
+          jQuery(this).siblings('.register-form-error').slideUp("3000");
+        }
+      });
+    });
+
+  </script>
+
+
+{% endblock content %}
