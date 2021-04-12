@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '9op9va&oinx!@$)p78ht#n1zn%5dk3id^3ry!s@--o4+l149al'
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = '9op9va&oinx!@$)p78ht#n1zn%5dk3id^3ry!s@--o4+l149al'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False' 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -164,8 +164,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
+EMAIL_HOST_USER = 'mydappy@gmail.com'
+EMAIL_HOST_PASSWORD = 'urnznsbpztnprhqk'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
